@@ -28,7 +28,7 @@ module Dynamoid
     def adapter
       if !@adapter_.value
         adapter = self.class.adapter_plugin_class.new
-        adapter.connect! if adapter.respond_to?(:connect!)
+        adapter.connect!
         @adapter_.compare_and_set(nil, adapter)
         clear_cache!
       end
